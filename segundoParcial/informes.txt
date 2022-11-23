@@ -1,0 +1,7 @@
+
+-Cantidad de unidades vendidas totales: 151
+-Cantidad de ventas por un monto mayor a $10000: 45
+-Cantidad de ventas por un monto mayor a $20000: 21
+-Cantidad de unidades vendidas para el modelo Cougar: 2
+
+**
