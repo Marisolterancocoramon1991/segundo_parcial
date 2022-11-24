@@ -71,13 +71,13 @@ static Node* getNode(LinkedList *this, int nodeIndex) {
 static int addNode(LinkedList *this, int nodeIndex, void *pElement) {
 	int retorno = -1;
 	Node *prev = NULL;
-	Node *nuevoNodo = NULL;
+	Node *nuevoNodo = (Node*) malloc(sizeof(Node));
 
 	// el nodeIndex tenia que ser <=len porque sin el "=" no entra en el caso del ultimo elemento
 	// el espacio se crea una vez ingresado al if
-	if (this != NULL && nodeIndex >= 0 && nodeIndex <= ll_len(this)) {
+	if (this != NULL && nodeIndex >= 0 && nodeIndex <= ll_len(this) && nuevoNodo!=NULL) {
 		// Creo espacio en memoria para nuevo nodo
-		nuevoNodo = (Node*) malloc(sizeof(Node));
+
 
 		//el elmento que se desea agregar se agrega en el campo pElement
 		nuevoNodo->pElement = pElement;

@@ -177,7 +177,6 @@ int main(void) {
 
 	} while (opcion != 9);
 
-	ll_clear(listaVentas);
 	ll_deleteLinkedList(listaVentas);
 	printf("Usted ha salido del programa... \n");
 

@@ -20,10 +20,11 @@
 ///
 /// @param Elemento puntero a void
 /// @return retorna la cantidad de productos vendidos
-/// 				(-1) en caso de fallar
+/// 				(0) en caso de fallar
+/// 	(retorna la cantidad) uno en caso de cumplir la conedicion
 
 int contadorUnidadesVendidas(void *Elemento) {
-	int retorno = ERROR;
+	int retorno = 0;
 	eVenta *auxelmento;
 	if (Elemento != NULL) {
 		auxelmento = (eVenta*) Elemento;
@@ -36,17 +37,17 @@ int contadorUnidadesVendidas(void *Elemento) {
 /// @brief funcion criterio para saber cuales son los montos mayoes a veinte mil
 ///
 /// @param Elemento puntero a void
-/// @return retorna (-1) en caso de error
+/// @return retorna
 /// 				(0) en caso de no cumplirse la condicion
 /// 				(1) uno en caso de cumplir la conedicion
 
 int contadorVentaPrecioMayorVeinteMil(void *Elemento) {
-	int retorno = ERROR;
+	int retorno = 0;
 	float auxiliarPrecio;
 	eVenta *auxelmento;
 	if (Elemento != NULL) {
 		auxelmento = (eVenta*) Elemento;
-		retorno = 0;
+
 		venta_getPrecioUnitario(auxelmento, &auxiliarPrecio);
 		if (auxiliarPrecio > 20000) {
 			retorno++;
@@ -61,18 +62,18 @@ int contadorVentaPrecioMayorVeinteMil(void *Elemento) {
 /// @brief funcion criterio que compara los nombres de los carros
 ///
 /// @param Elemento puntero a void
-/// @return retorna (-1) en caso de error
+/// @return retorna
 /// 				(0) en caso de no cumplirse la condicion
 /// 				(1) uno en caso de cumplir la conedicion
 
 int contadorModelo(void *Elemento) {
-	int retorno = ERROR;
+	int retorno = 0;
 
 	char auxiliarmodeloAuto[100];
 	eVenta *auxelmento;
 	if (Elemento != NULL) {
 		auxelmento = (eVenta*) Elemento;
-		retorno = 0;
+
 		Venta_getModeloAuto(auxelmento, auxiliarmodeloAuto);
 		if (strcmp(auxiliarmodeloAuto, "Cougar") == 0) {
 			retorno++;
@@ -87,18 +88,17 @@ int contadorModelo(void *Elemento) {
 /// @brief funcion criterio que coompara si el elemento o venta tiene un monto mayor a diez
 /// mil
 /// @param Elemento puntero a void
-/// @return retorna (-1) en caso de error
+/// @return retorna
 /// 				(0) en caso de no cumplirse la condicion
 /// 				(1) uno en caso de cumplir la conedicion
 
 int contadorVentaPrecioMayorDiezMil(void *Elemento) {
 
-	int retorno = ERROR;
+	int retorno = 0;
 	float auxiliarPrecio;
 	eVenta *auxelmento;
 	if (Elemento != NULL) {
 		auxelmento = (eVenta*) Elemento;
-		retorno = 0;
 		venta_getPrecioUnitario(auxelmento, &auxiliarPrecio);
 		if (auxiliarPrecio > 10000) {
 			retorno++;
@@ -221,7 +221,7 @@ int controller_agregarVenta(LinkedList *pArrayListVenta) {
 							precioUnitario) == VERDADERO
 							&& venta_setTarjetaCredito(nuevaVenta, tarjeta)
 							== VERDADERO && venta_setID(nuevaVenta, id) == VERDADERO) {
-				printf("kerv2");
+
 				if (nuevaVenta != NULL) {
 					ll_add(pArrayListVenta, nuevaVenta);
 					retorno = VERDADERO;
